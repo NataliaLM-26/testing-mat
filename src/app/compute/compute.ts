@@ -1,8 +1,9 @@
-function compute(input : number): number{
-    if(input>0){
+function compute(input: number): number {
+    if (input < 0) {
         return 0;
-    }else{
-        return input +1;
+    } else {
+        return input + 1;
     }
 }
-export {compute};
+
+export { compute };
