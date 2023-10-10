@@ -18,4 +18,8 @@ describe('MediaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return mean', () => {
+    
+  });
 });
