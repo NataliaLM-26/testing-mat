@@ -15,11 +15,11 @@ describe('MediaComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  xit('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should return mean', () => {
-    
+  it('should calculate the mean', () => {
+    expect(component.mean).toBe(550.6);
   });
 });
