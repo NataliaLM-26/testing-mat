@@ -8,8 +8,8 @@ import { DatosService } from '../services/datos.service';
 })
 export class MediaComponent implements OnInit {
   data: number[] = [];
-  mean: number = 0;
-
+  mean: number =0;
+  
   constructor(private service: DatosService){}
 
   ngOnInit(): void {
@@ -23,6 +23,7 @@ export class MediaComponent implements OnInit {
     if (this.data.length > 0) {
       const sum = this.data.reduce((acc, val) => acc + val, 0);
       this.mean = sum / this.data.length;
+      this.mean=parseFloat(this.mean.toFixed(2));
     } else {
       console.error('No hay datos para calcular la media.');
     }

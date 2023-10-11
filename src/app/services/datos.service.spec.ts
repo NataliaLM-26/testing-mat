@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { DatosService } from './datos.service';
 
 describe('ServicesService', () => {
@@ -13,7 +13,4 @@ describe('ServicesService', () => {
   xit('should be created', () => {
     expect(service).toBeTruthy();
   });
-
-  
-
 });

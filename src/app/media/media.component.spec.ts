@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MediaComponent } from './media.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('MediaComponent', () => {
   let component: MediaComponent;
@@ -8,14 +8,16 @@ describe('MediaComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MediaComponent]
+      declarations: [MediaComponent],
+      imports:[HttpClientModule]
     });
     fixture = TestBed.createComponent(MediaComponent);
     component = fixture.componentInstance;
+    component.mean=550.6;
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
