@@ -13,7 +13,7 @@ describe('MediaComponent', () => {
     });
     fixture = TestBed.createComponent(MediaComponent);
     component = fixture.componentInstance;
-    component.mean=550.6;
+    component.calculateMean;
     fixture.detectChanges();
   });
 
@@ -22,6 +22,11 @@ describe('MediaComponent', () => {
   });
 
   it('should calculate the mean', () => {
-    expect(component.mean).toBe(550.6);
+    component.ngOnInit();
+    expect(component.calculateMean).toBe(550.6);
   });
+
+  /* it('should calculate the mean', () => {
+    expect(component.calculateMean).toBe(550.6);
+  }); */
 });

@@ -13,6 +13,6 @@ export class DatosService {
   constructor(private http: HttpClient) { }
 
   getData():Observable<number[]>{
-    return this.http.get<number[]>(this.api_proxyURL);
+    return this.http.get<any>(this.api_proxyURL);
   }
 }
