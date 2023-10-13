@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ "develop"]
 jobs:
-  develop_ci_cd:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,14 +14,8 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: list dir
-        run: ls -la
-        
       - name: Setup
         run: npm ci
-
-      - name: show node_modules
-        run: ls node_modules
 
       - name: Test
         run: |
