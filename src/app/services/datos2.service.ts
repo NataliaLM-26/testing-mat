@@ -6,13 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class DatosService {
-  private api_proxyURL ='http://localhost:8080/proxy_size';
-  /* private api_devURL ='http://localhost:8080/dev_hours'; */
-  
+export class Datos2Service {
+  private api_devURL ='http://localhost:8080/dev_hours';
+
   constructor(private http: HttpClient) { }
 
   getData():Observable<number[]>{
-    return this.http.get<any>(this.api_proxyURL);
+    return this.http.get<any>(this.api_devURL);
   }
 }
