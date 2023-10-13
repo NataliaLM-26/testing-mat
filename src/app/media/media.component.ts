@@ -10,6 +10,7 @@ import { Datos2Service } from '../services/datos2.service';
 export class MediaComponent implements OnInit {
   data1: number[] = [0];
   data2: number[] = [0];
+  mean: number=0;
   
   constructor(private service1: Datos1Service, private service2: Datos2Service){}
 
@@ -19,8 +20,7 @@ export class MediaComponent implements OnInit {
       })
       this.service2.getData().subscribe(data => {
         this.data2=data;
-      })
-      ;
+      });
   }
 
   getData(option:number):number[]{
@@ -46,9 +46,10 @@ export class MediaComponent implements OnInit {
       console.error('No hay datos para calcular la media.');
     } */
     var sum=0;
+    
     for(var i=0; i<data.length; i++){
       sum+=data[i];
     }
-    return Number((sum/data.length).toFixed(2));
+    return this.mean= Number((sum/data.length).toFixed(2));
   }
 }
