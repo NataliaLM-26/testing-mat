@@ -19,8 +19,7 @@ export class MediaComponent implements OnInit {
       })
       this.service2.getData().subscribe(data => {
         this.data2=data;
-      })
-      ;
+      });
   }
 
   getData(option:number):number[]{
