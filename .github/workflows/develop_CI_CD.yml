@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ "develop"]
 jobs:
-  build:
+  develop_CI_CD:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
