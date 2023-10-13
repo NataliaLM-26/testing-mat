@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 
 export class Datos2Service {
-  private api_devURL ='http://localhost:8080/dev_hours';
+  private api_devURL ='https://apicv-service-natalialm-26.cloud.okteto.net/dev_hours';
 
   constructor(private http: HttpClient) { }
 
