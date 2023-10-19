@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MediaComponent } from './media/media.component';
 import { StddevComponent } from './stddev/stddev.component';
+import { LinarRegressionComponent } from './linear-regression/linar-regression.component';
+import { LinearRegressionComponent } from './linear-regression/linear-regression.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MediaComponent,
-    StddevComponent
+    StddevComponent,
+    LinarRegressionComponent,
+    LinearRegressionComponent
   ],
   imports: [
     BrowserModule,
