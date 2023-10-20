@@ -23,12 +23,19 @@ export class LinearRegressionComponent {
   }
 
   calculateValues() {
-    
+    if (this.data) {
       const calculator = new Calculate(this.data);
-      this.B0 = calculator.calculateB0();
+      const B0 = calculator.calculateB0();
       const B1 = calculator.calculateB1();
       const x = 386;
       const yk = calculator.calculateYk(x);
+
+      console.log(`B0=${B0.toFixed(4)}`);
+      console.log(`B1=${B1.toFixed(4)}`);
+      console.log(`yk=${yk.toFixed(3)}`);
+      console.info;
     }
+    }
+
   
 }

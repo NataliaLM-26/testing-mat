@@ -10,7 +10,7 @@ export class Calculate {
       return this.data.proxy_size.reduce((acc: number, value: number) => acc + value, 0);
     }
   
-    sumYY(): number {
+    calculateYY(): number {
       return this.data.actual_added.reduce((acc: number, value: number) => acc + value * value, 0);
     }
   
@@ -43,7 +43,7 @@ export class Calculate {
     calculateB1(): number {
       const n = this.data.proxy_size.length;
       const sumax = this.sumX();
-      const sumay = this.sumYY();
+      const sumay = this.calculateYY();
       const sumaxy = this.sumXY();
   
       /* return (n * sumXY - sumX * sumY) / (n * sumX - sumX * sumX); */
@@ -54,7 +54,7 @@ export class Calculate {
     calculateB0(): number {
         const n = this.data.proxy_size.length;
         const sumX = this.sumX();
-        const sumY = this.sumYY();
+        const sumY = this.calculateYY();
         const sumXY = this.sumXY();
     
         return (sumY * this.sumX() - sumX * sumXY) / (n * sumX - sumX * sumX);
