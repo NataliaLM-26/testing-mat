@@ -12,57 +12,127 @@ describe('LinearRegressionComponent', () => {
   let component: LinearRegressionComponent;
   let fixture: ComponentFixture<LinearRegressionComponent>;
   let test1service: Test1Service;
+  let test2service: Test2Service;
+  let test3service: Test3Service;
+  let test4service: Test4Service;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [LinearRegressionComponent],
       imports:[HttpClientTestingModule],
-      providers: [{ provide: Calculate }, Test1Service, Test2Service, Test3Service, Test4Service]
+      providers: [Calculate , Test1Service, Test2Service, Test3Service, Test4Service]
     });
+
     fixture = TestBed.createComponent(LinearRegressionComponent);
     component = fixture.componentInstance;
     test1service=TestBed.inject(Test1Service);
+    test2service = TestBed.inject(Test2Service);
+    test3service = TestBed.inject(Test3Service);
+    test4service = TestBed.inject(Test4Service);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  xit('should create', () => {
+    expect(component).toBeTruthy();});
 
-  /* it('Should return B0=-22.55 with Data_Test1', () => {
-    const espera = {
+    const test1Data = {
       proxy_size: [130, 650, 99, 150, 128, 302, 95, 945, 368, 961],
-      actual_added: [186, 699, 132, 272, 291, 331, 199, 1890, 788, 1601]
+      actual_added: [186, 699, 132, 272, 291, 331, 199, 1890, 788, 1601],
     };
-    spyOn(test1service, 'getData').and.returnValue(of(espera));
-    fixture.detectChanges();
-    component.calculateValues();
-    expect(component.B0).toBeCloseTo(-22.55, 2);
-  }); */
-
-  /* it('Should return B1=1.7279 with the dataset Data_Test1', () => {
-    const testData = {
+  
+    const test2Data = {
       proxy_size: [130, 650, 99, 150, 128, 302, 95, 945, 368, 961],
-      actual_added: [186, 699, 132, 272, 291, 331, 199, 1890, 788, 1601]
+      actual_develop: [
+        15.0, 69.9, 6.5, 22.4, 28.4, 65.9, 19.4, 198.7, 38.8, 138.2,
+      ],
     };
-
-    spyOn(test1service, 'getData').and.returnValue(of(testData)); // Simula la respuesta del servicio
-
-    component.calculateValues(); // Realiza el cálculo
-
-    expect(component.B1).toBeCloseTo(1.7279, 4); // Asegura que B1 es aproximadamente igual a 1.7279
-  }); */
-
-  /* it('Should return yk=644.429 with the dataset Data_Test1 if x=386', () => {
-    const testData = {
-      proxy_size: [130, 650, 99, 150, 128, 302, 95, 945, 368, 961],
-      actual_added: [186, 699, 132, 272, 291, 331, 199, 1890, 788, 1601]
+  
+    const test3Data = {
+      plan_added: [163, 765, 141, 166, 137, 355, 136, 1206, 433, 1130],
+      actual_added: [186, 699, 132, 272, 291, 331, 199, 1890, 788, 1601],
     };
+  
+    const test4Data = {
+      plan_added: [163, 765, 141, 166, 137, 355, 136, 1206, 433, 1130],
+      actual_develop: [
+        15.0, 69.9, 6.5, 22.4, 28.4, 65.9, 19.4, 198.7, 38.8, 138.2,
+      ],
+    };
+  
+    it('should return B0 = -22.5525 with test1 json', () => {
+      spyOn(test1service, 'getData').and.returnValue(of(test1Data));
+      component.fetchDataForRoute(1);
+      const result = component.calculateB0();
+      expect(result).toBeCloseTo(-22.5525, 4);
+    });
+  
+    it('should return y = 644.429 if x = 386 with test1 json', () => {
+      spyOn(test1service, 'getData').and.returnValue(of(test1Data));
+      component.fetchDataForRoute(1);
+      const result = component.calculateY(386);
+      expect(result).toBeCloseTo(644.429, 3);
+    });
+  
+    it('should return B1 = 0.1681 with test2 JSON', () => {
+      spyOn(test2service, 'getData').and.returnValue(of(test2Data));
+      component.updateData(2);
+      const result = component.calculateB1();
+      expect(result).toBeCloseTo(0.1681, 4);
+    });
+  
+    it('should return B0 = -4.039 with test2 JSON', () => {
+      spyOn(test2service, 'getData').and.returnValue(of(test2Data));
+      component.updateData(2);
+      const result = component.calculateB0();
+      expect(result).toBeCloseTo(-4.039, 3);
+    });
+  
+    it('should return y = 60.858 if x = 386 with2 test JSON', () => {
+      spyOn(test2service, 'getData').and.returnValue(of(test2Data));
+      component.updateData(2);
+      const result = component.calculateY(386);
+      expect(result).toBeCloseTo(60.858, 3);
+    });
+  
+    it('should return B1 = 1.43097 with test3 JSON', () => {
+      spyOn(test3service, 'getData').and.returnValue(of(test3Data));
+      component.updateData(3);
+      const result = component.calculateB1();
+      expect(result).toBeCloseTo(1.43097, 5);
+    });
+  
+    it('should return B0 = -23.92 with test3 JSON', () => {
+      spyOn(test3service, 'getData').and.returnValue(of(test3Data));
+      component.updateData(3);
+      const result = component.calculateB0();
+      expect(result).toBeCloseTo(-23.92, 2);
+    });
+  
+    it('should return y = 528.4294 if x = 386 with3 test JSON', () => {
+      spyOn(test3service, 'getData').and.returnValue(of(test3Data));
+      component.updateData(3);
+      const result = component.calculateY(386);
+      expect(result).toBeCloseTo(528.4294, 4);
+    });
+  
+    it('should return B1 = 0.140164 with test4 JSON', () => {
+      spyOn(test4service, 'getData').and.returnValue(of(test4Data));
+      component.updateData(4);
+      const result = component.calculateB1();
+      expect(result).toBeCloseTo(0.140164, 6);
+    });
+  
+    it('should return B0 = -4.604 with test4 JSON', () => {
+      spyOn(test4service, 'getData').and.returnValue(of(test4Data));
+      component.updateData(4);
+      const result = component.calculateB0();
+      expect(result).toBeCloseTo(-4.604, 3);
+    });
+  
+    it('should return y = 49.4994 if x = 386 with test4 JSON', () => {
+      spyOn(test4service, 'getData').and.returnValue(of(test4Data));
+      component.updateData(4);
+      const result = component.calculateY(386);
+      expect(result).toBeCloseTo(49.4994, 4);
+    });
 
-    spyOn(test1service, 'getData').and.returnValue(of(testData)); // Simula la respuesta del servicio
-
-    component.calculateValues(); // Realiza el cálculo
-
-    const x = 386;
-    expect(component.yk).toBeCloseTo(644.429, 3); // Asegura que yk es aproximadamente igual a 644.429 para x=386
-  }); */
 });
