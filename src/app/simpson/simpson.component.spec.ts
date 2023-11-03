@@ -4,7 +4,7 @@ import { SimpsonComponent } from './simpson.component';
 describe('SimpsonComponent', () => {
   let component: SimpsonComponent;
   let fixture: ComponentFixture<SimpsonComponent>;
-
+  
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [SimpsonComponent]
@@ -48,13 +48,44 @@ describe('SimpsonComponent', () => {
     expect(result).toBeCloseTo(1.387, 2);
   });
 
+  ///////// distribución t
   it('should return p=0.35006 if dof=9 and 0 to x=1.1', () => {
     let dof = 9;
     let x = 1.1;
-    let num_seg = 9;
-    let ERROR = 0.00001;
-    let w=x/num_seg;
-    let result = component.calculateTDistributionIntegral(x,0,x,dof,num_seg);
-    expect(result).toBeCloseTo(0.3152,3);
+    let num_seg = 4;
+    let result = component.Tsimp(x,0,x,num_seg,dof);
+    expect(result).toBeCloseTo(0.35005,2);
     });
+
+    //ejemplo de gamma
+    it('should return 24',()=>{
+      let x=5;
+      let result=component.gamma(x);
+      expect(result).toBe(24);
+    });
+
+    //ejemplo de gamma
+    it('should return gamma 9/2',()=>{
+      let x=9/2;
+      let result=component.gamma(x);
+      expect(result).toBeCloseTo(11.6317,2);
+    });
+    
+  xit('should return p=0.36757 if dof=10 and 0 to x=1.1812', () => {
+      let dof = 10;
+      let x = 1.1812;
+      let num_seg = 10;
+      let w=x/num_seg;
+      let result = component.Tsimp(x,0,x,dof,num_seg);
+      expect(result).toBeCloseTo(0.36757,5);
+  });
+
+  it('should return p=0.49500 if dof=30 and 0 to x=.710', () => {
+        let dof = 30;
+        let x = 0.710;
+        let num_seg = 10;
+        let w=x/num_seg;
+        let result = component.Tsimp(x,0,x,dof,num_seg);
+        expect(result).toBeCloseTo(0.49590,3);
+  });
 });

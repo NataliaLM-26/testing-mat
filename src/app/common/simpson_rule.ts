@@ -12,3 +12,5 @@ export function twoTimes(x: number): number {
   }
 
   
+
+  export class simpson_rule{}

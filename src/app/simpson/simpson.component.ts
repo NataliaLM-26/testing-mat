@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-/* import { simpson_rule } from '../common/simpson_rule'; */
+import { simpson_rule } from '../common/simpson_rule';
 import * as math from 'mathjs';
 @Component({
   selector: 'app-simpson',
@@ -25,24 +25,41 @@ export class SimpsonComponent {
     return p;
   }
 
-  calculateTDistributionIntegral(a: number, b: number,x: number, nu: number, numSegments: number): number {
-    const h = x / numSegments;
-    let sum = this.densityFunction(x, nu) + this.densityFunction(b, nu);
+  Tsimp(x: number, b: number, n: number, numSegments: number, dof:number): number {
+    const w = x/ numSegments;
+    let sum = this.funcionGamma(x, n) + this.funcionGamma(b, n);
 
     for (let i = 1; i < numSegments; i++) {
-      const x = a + i * h;
+      const z = x + i * w;
       if (i % 2 === 0) {
-        sum += 2 * this.densityFunction(x, nu);
+        sum += 2 * this.funcionGamma(z, n);
       } else {
-        sum += 4 * this.densityFunction(x, nu);
+        sum += 4 * this.funcionGamma(z, n);
       }
     }
-
-    return (h / 3) * sum;
+    return (w/ 3) * sum;
   }
-  densityFunction(x: number, nu: number): number {
-    const gamma = math.gamma(nu / 2);
-    const factor = gamma / (Math.sqrt(nu * Math.PI) * math.gamma((nu + 1) / 2));
-    return factor * Math.pow(1 + (x * x / nu), -((nu + 1) / 2));
+  funcionGamma(x: number, dof: number): number {
+    /* const one= math.gamma((dof+1)/2);
+    const two = (dof*Math.PI)^(1/2);
+    const three = math.gamma(dof / 2);
+    const four = (1+((x*x)/dof)^(-(dof+1)/2));
+    const factor = (one/(two*three))*four; 
+    return factor;*/
+    const gamma=math.gamma(dof/2);
+    const factor = gamma / (Math.sqrt(dof*Math.PI)*math.gamma((dof+1)/2));
+    return factor*Math.pow(1+(x*x/dof),-((dof+1)/2));
+  }
+
+  gamma(x: number): number {
+    /* const one= math.gamma((dof+1)/2);
+    const two = (dof*Math.PI)^(1/2);
+    const three = math.gamma(dof / 2);
+    const four = (1+((x*x)/dof)^(-(dof+1)/2));
+    const factor = (one/(two*three))*four; 
+    return factor;*/
+    const gamma=math.gamma(x);
+    
+    return gamma;
   }
 }
