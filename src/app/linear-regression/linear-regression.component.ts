@@ -30,7 +30,7 @@ export class LinearRegressionComponent {
   calculate = new Calculate();
 
   ngOnInit(): void {
-    this.fetchDataForRoute(this.selectedRouteNumber);
+    /* this.fetchDataForRoute(this.selectedRouteNumber); */
   }
 
   fetchDataForRoute(routeNumber: number): void {
@@ -63,8 +63,8 @@ export class LinearRegressionComponent {
           this.handleDataResponse(data);
         });
         break;
-      default:
-        console.error('Número de ruta no válido');
+      /* default:
+        console.error('Número de ruta no válido'); */
     }
   }
   handleDataResponse(data: any): void {

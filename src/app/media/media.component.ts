@@ -29,9 +29,8 @@ export class MediaComponent implements OnInit {
     }else{
       if(option==2){
         return this.data2;
-      }else{
-        return [];
       }
+      return [];
     }
   }
 
