@@ -1,0 +1,24 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(192, 125, 255);
+    border-radius: 10px;
+    width: 100vh;
+    height: 70vh;
+}
+
+.botones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 2rem;
+}
+
+button{
+    border-radius: 5px;
+    height: 2.5rem;
+    border: none;
+}
