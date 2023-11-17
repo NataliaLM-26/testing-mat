@@ -10,17 +10,19 @@ export class Test1Service {
   private api_url= 'https://apicv-service-natalialm-26.cloud.okteto.net/3a_test1';
   
   constructor(private http:HttpClient) {}
-  httpOptions = {
+  /* httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
-  };
+  }; */
   
   getData():Observable<any>{
-    return this.http.get<any>(this.api_url,this.httpOptions).pipe(retry(1),catchError(this.handleError));
+    /* (this.api_url,this.httpOptions).pipe(retry(1),catchError(this.handleError)); */
+    return this.http.get<any>(this.api_url);
   }
+  
 
-  handleError(error: any) {
+  /* handleError(error: any) {
     let errorMessage = '';
 
     if (error.error instanceof ErrorEvent) {
@@ -31,5 +33,5 @@ export class Test1Service {
 
     window.alert(errorMessage);
     return throwError(errorMessage);
-  }
+  } */
 }

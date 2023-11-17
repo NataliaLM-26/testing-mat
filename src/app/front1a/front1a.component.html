@@ -1,23 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mean & Standar Desviation</title>
+    <title>Mean & StdDev</title>
 </head>
 <body>
-    <div class="contenido">
-        <table>
-            <tr>
-                <th colspan="2"><h3>Data1</h3></th>
+    <h2>Mean & Standar Desviation</h2>
+    <br>
+        <h3>Data1</h3>
+            <p>{{ data1 }}</p>
+    <div class="seleccionData">
+        <h4>Media</h4>
+        <textarea name="media" id="media" cols="20" rows="2">
+            {{meanData1 || 'Calculating...'}}
+        </textarea>
+    </div>    
+    <div class="seleccionData">
+        <h4>Std deviation</h4>
+        <textarea name="std" id="std" cols="20" rows="2">
+            {{desviacionData1 || 'Calculating...'}}
+        </textarea>
+    </div>
+    <button (click)="updateCalculations(1)" class="calcular">
+        Calculate
+    </button>
 
-            </tr>
-        </table>
+    <br>
+    <h3>Data2</h3>
+            <p>{{ data2 }}</p>
+    <div class="seleccionData">
+        <h4>Media</h4>
+        <textarea name="media" id="media" cols="20" rows="2">
+            {{meanData2 || 'Calculating...'}}
+        </textarea>
+    </div>    
+    <div class="seleccionData">
+        <h4>Std deviation</h4>
+        <textarea name="std" id="std" cols="20" rows="2">
+            {{desviacionData2 || 'Calculating...'}}
+        </textarea>
     </div>
-    <div>
-        <p>Calcular:</p>
-        <input type="radio" />Data 1
-        <input type="radio" />Data 2
-    </div>
+    <button (click)="updateCalculations(2)" class="calcular">
+        Calculate
+    </button>
+    
 </body>
-</html>
