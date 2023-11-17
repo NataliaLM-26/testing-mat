@@ -23,15 +23,8 @@ export class MediaComponent implements OnInit {
       });
   }
 
-  getData(option:number):number[]{
-    if(option==1){
-      return this.data1;
-    }else{
-      if(option==2){
-        return this.data2;
-      }
-      return [];
-    }
+  getData(option: number): number[] {
+    return option === 1 ? this.data1 : option === 2 ? this.data2 : [];
   }
 
   calculateMean(data:number[]):number {

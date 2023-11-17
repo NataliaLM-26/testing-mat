@@ -10,6 +10,7 @@ import { LinearRegressionComponent } from './linear-regression/linear-regression
 import { CorrelationComponent } from './correlation/correlation.component';
 import { SimpsonComponent } from './simpson/simpson.component';
 import { MainComponent } from './main/main.component';
+import { Front1aComponent } from './front1a/front1a.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MainComponent } from './main/main.component';
     LinearRegressionComponent,
     CorrelationComponent,
     SimpsonComponent,
-    MainComponent
+    MainComponent,
+    Front1aComponent
   ],
   imports: [
     BrowserModule,

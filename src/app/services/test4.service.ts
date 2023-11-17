@@ -11,10 +11,11 @@ export class Test4Service {
   constructor(private http:HttpClient) {}
   
   getData():Observable<any>{
-    return this.http.get<any>(this.api_url).pipe(retry(1),catchError(this.handleError));
+    /* return this.http.get<any>(this.api_url).pipe(retry(1),catchError(this.handleError)); */
+      return this.http.get<any>(this.api_url);
   }
 
-  handleError(error: any) {
+ /*  handleError(error: any) {
     let errorMessage = '';
 
     if (error.error instanceof ErrorEvent) {
@@ -25,5 +26,5 @@ export class Test4Service {
 
     window.alert(errorMessage);
     return throwError(errorMessage);
-  }
+  } */
 }
