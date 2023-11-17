@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync  } from '@angular/core/testing';
 import { Front1aComponent } from './front1a.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Datos1Service } from '../services/datos1.service';
@@ -9,40 +9,48 @@ import { By } from '@angular/platform-browser';
 describe('Front1aComponent', () => {
   let component: Front1aComponent;
   let fixture: ComponentFixture<Front1aComponent>;
-  let service1: jasmine.SpyObj<Datos1Service>;
-  let service2: jasmine.SpyObj<Datos2Service>;
+  let service1: Datos1Service;
+  let service2: Datos2Service;
 
   beforeEach(() => {
-    service1 = jasmine.createSpyObj('Datos1Service', ['getData']);
-    service2 = jasmine.createSpyObj('Datos2Service', ['getData']);
-
     TestBed.configureTestingModule({
       declarations: [Front1aComponent],
       imports: [HttpClientTestingModule],
+      providers: [Datos1Service, Datos2Service]
     });
     fixture = TestBed.createComponent(Front1aComponent);
     component = fixture.componentInstance;
+    service1 = TestBed.inject(Datos1Service);
+    service2 = TestBed.inject(Datos2Service);
     fixture.detectChanges();
   });
 
-  /* it('should subscribe to services and update data on initialization', () => {
-    const mockData1 = [160,591,114,229,230,270,128,1657,624,1503];
-    const mockData2 = [15,69.9,6.5,22.4,28.4,65.9,19.4,198.7,38.8,138.2];
-  
-    service1.getData.and.returnValue(of(mockData1));
-    service2.getData.and.returnValue(of(mockData2));
+  /* it('should fetch data from services on initialization', () => {
     component.ngOnInit();
-  
-    expect(service1.getData).toHaveBeenCalledOnceWith();
-    expect(service2.getData).toHaveBeenCalledOnceWith();
-  
-    expect(component.data1).toEqual(mockData1);
-    expect(component.data2).toEqual(mockData2);
-  
-    expect(component.updateCalculations).toHaveBeenCalledWith(1);
-    expect(component.updateCalculations).toHaveBeenCalledWith(2);
+
+    expect(component.data1).toEqual([160,591,114,229,230,270,128,1657,624,1503]);
+    expect(component.data2).toEqual([15,69.9,6.5,22.4,28.4,65.9,19.4,198.7,38.8,138.2]);
   }); */
-  
+
+  it('should fetch data from services on initialization', waitForAsync(() => {
+    const mockData1 = [1, 2, 3];
+    const mockData2 = [4, 5, 6];
+
+    // Configura el servicio1 para devolver datos simulados al llamar a getData.
+    spyOn(service1, 'getData').and.returnValue(of(mockData1));
+
+    // Configura el servicio2 para devolver datos simulados al llamar a getData.
+    spyOn(service2, 'getData').and.returnValue(of(mockData2));
+
+    // Llama a ngOnInit.
+    component.ngOnInit();
+
+    fixture.whenStable().then(() => {
+      // Verifica que los datos se hayan actualizado correctamente.
+      expect(component.data1).toEqual(mockData1);
+      expect(component.data2).toEqual(mockData2);
+    });
+  }));
 
   it('should load data on initialization', () => {
     component.ngOnInit();
