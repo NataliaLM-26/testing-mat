@@ -12,7 +12,10 @@ import { Test4Service } from '../services/test4.service';
 })
 export class Front3aComponent {
   constructor (private test1: Test1Service, private test2: Test2Service, private test3:Test3Service, private test4:Test4Service){  }
-
+  dataTest = {
+    x: [],
+    y: [],
+  };
   lista1: number[] = [];
   lista2: number[] = [];
   selectedRouteNumber: number = 1;
@@ -28,10 +31,12 @@ export class Front3aComponent {
   b1:number = 0;
   b0:number = 0;
   y:number = 0;
+  r: number = 0;
+  r2: number = 0;
 
   calculate = new Calculate();
 
-  ngOnInit(): void {
+  ngOnInit(option:number): void {
     this.fetchDataForRoute(this.selectedRouteNumber);
   }
 
@@ -65,8 +70,6 @@ export class Front3aComponent {
           this.handleDataResponse(data);
         });
         break;
-      default:
-        console.error('Número de ruta no válido');
     }
   }
   handleDataResponse(data: any): void {
@@ -81,30 +84,35 @@ export class Front3aComponent {
     this.n = this.lista1.length;
   }
 
-  /* updateData(routeNumber: number): void {
-    this.fetchDataForRoute(routeNumber);
-  } */
-
   updateCalculations(option: number): void {
     const data = this.fetchDataForRoute(option);
     if (option === 1) {
       this.b0=this.calculateB0();
       this.b1=this.calculateB1();
       this.y=this.calculateY(386);
+      this.r=this.calculateR();
+      this.r2=this.calculateRCuadrada();
     } if (option === 2) {
       this.b0=this.calculateB0();
       this.b1=this.calculateB1();
       this.y=this.calculateY(386);
+      this.r=this.calculateR();
+      this.r2=this.calculateRCuadrada();
     } if (option === 3) {
       this.b0=this.calculateB0();
       this.b1=this.calculateB1();
       this.y=this.calculateY(386);
+      this.r=this.calculateR();
+      this.r2=this.calculateRCuadrada();
     } if (option === 4) {
       this.b0=this.calculateB0();
       this.b1=this.calculateB1();
       this.y=this.calculateY(386);
+      this.r=this.calculateR();
+      this.r2=this.calculateRCuadrada();
     }
   }
+
   calculateB1(): number {
     this.b1 = this.calculate.calculateB1(this.sumXY, this.sumX, this.sumY, this.sumXX, this.n);
     return this.b1;
@@ -118,5 +126,21 @@ export class Front3aComponent {
   calculateY(x: number): number {
     this.y = this.calculate.calculateY(this.calculateB0(), this.calculateB1(), x);
     return this.y;
+  }
+
+  calculateR(): number {
+    this.r =
+      (this.n * this.sumXY - this.sumX * this.sumY) /
+      Math.sqrt(
+        (this.n * this.sumXX - Math.pow(this.sumX, 2)) *
+          (this.n * this.sumYY - Math.pow(this.sumY, 2))
+      );
+    return this.r;
+  }
+
+  calculateRCuadrada(): number {
+    let r = this.calculateR();
+    this.r2=r * r;
+    return this.r2;
   }
 }

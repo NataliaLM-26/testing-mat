@@ -35,18 +35,10 @@ describe('Front1aComponent', () => {
   it('should fetch data from services on initialization', waitForAsync(() => {
     const mockData1 = [1, 2, 3];
     const mockData2 = [4, 5, 6];
-
-    // Configura el servicio1 para devolver datos simulados al llamar a getData.
     spyOn(service1, 'getData').and.returnValue(of(mockData1));
-
-    // Configura el servicio2 para devolver datos simulados al llamar a getData.
     spyOn(service2, 'getData').and.returnValue(of(mockData2));
-
-    // Llama a ngOnInit.
     component.ngOnInit();
-
     fixture.whenStable().then(() => {
-      // Verifica que los datos se hayan actualizado correctamente.
       expect(component.data1).toEqual(mockData1);
       expect(component.data2).toEqual(mockData2);
     });
