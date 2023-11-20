@@ -71,14 +71,14 @@ describe('SimpsonComponent', () => {
       expect(result).toBeCloseTo(11.6317,2);
     });
     
-  xit('should return p=0.36757 if dof=10 and 0 to x=1.1812', () => {
+  /* xit('should return p=0.36757 if dof=10 and 0 to x=1.1812', () => {
       let dof = 10;
       let x = 1.1812;
       let num_seg = 10;
       let w=x/num_seg;
       let result = component.Tsimp(x,0,x,dof,num_seg);
       expect(result).toBeCloseTo(0.36757,5);
-  });
+  }); */
 
   it('should return p=0.49500 if dof=30 and 0 to x=.710', () => {
         let dof = 30;

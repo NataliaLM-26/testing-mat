@@ -15,7 +15,7 @@ describe('Test4Service', () => {
     httpMock = TestBed.inject(HttpTestingController);
   });
 
-  xit('should be created', () => {
+  it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
@@ -32,23 +32,6 @@ describe('Test4Service', () => {
 
     httpMock.verify();
   });
-
-  /* it('should handle errors appropriately', () => {
-    const errorMessage = 'Error fetching data';
-
-    service.getData().subscribe(
-      data => fail('Expected an error, but received data'),
-      error => {
-        expect(error).toEqual(errorMessage);
-      }
-    );
-
-    const req = httpMock.expectOne(service.api_url);
-    expect(req.request.method).toBe('GET');
-    req.error(new ErrorEvent('error', { message: errorMessage }));
-
-    httpMock.verify();
-  }); */
 
   afterEach(() => {
     httpMock.verify();

@@ -31,7 +31,7 @@ describe('LinearRegressionComponent', () => {
     test4service = TestBed.inject(Test4Service);
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();});
 
     const test1Data = {
