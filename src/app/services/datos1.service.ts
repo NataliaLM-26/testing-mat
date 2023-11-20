@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 
 export class Datos1Service {
-  private api_proxyURL ='https://apicv-service-natalialm-26.cloud.okteto.net/proxy_size';
+   api_proxyURL ='https://apicv-service-natalialm-26.cloud.okteto.net/proxy_size';
   
   constructor(private http: HttpClient) { }
 

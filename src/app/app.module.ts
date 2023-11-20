@@ -11,6 +11,7 @@ import { CorrelationComponent } from './correlation/correlation.component';
 import { SimpsonComponent } from './simpson/simpson.component';
 import { MainComponent } from './main/main.component';
 import { Front1aComponent } from './front1a/front1a.component';
+import { Front3aComponent } from './front3a/front3a.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { Front1aComponent } from './front1a/front1a.component';
     CorrelationComponent,
     SimpsonComponent,
     MainComponent,
-    Front1aComponent
+    Front1aComponent,
+    Front3aComponent
   ],
   imports: [
     BrowserModule,

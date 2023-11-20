@@ -28,17 +28,7 @@ export class MediaComponent implements OnInit {
   }
 
   calculateMean(data:number[]):number {
-   /*  if (this.data.length > 0) { */
-      /* const sum = this.data1.reduce((acc, val) => acc + val, 0);
-      this.mean = sum / this.data1.length;
-      this.mean=parseFloat(this.mean.toFixed(2));
-      return this.mean */
-    /* } else {
-      return null
-      console.error('No hay datos para calcular la media.');
-    } */
     var sum=0;
-    
     for(var i=0; i<data.length; i++){
       sum+=data[i];
     }

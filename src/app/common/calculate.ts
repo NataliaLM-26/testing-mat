@@ -2,7 +2,6 @@ export class Calculate {
 
   sumX(lista: number[]): number {
       var sum = 0;
-      console.log(lista);
       for (let i = 0; i < lista.length; i++) {
           sum += lista[i];
       }

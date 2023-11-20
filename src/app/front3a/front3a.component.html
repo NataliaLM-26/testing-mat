@@ -1,0 +1,54 @@
+<body>
+    <h1>Linear regression & Correlation</h1><br>
+    <div class="test1">
+        <h3>Data</h3>
+        <div class="seleccionData">
+            <h4>B1</h4>
+            <textarea name="media" id="media" cols="20" rows="2">
+                {{b1}}
+            </textarea>
+        </div>    
+        <div class="seleccionData">
+            <h4>B0</h4>
+            <textarea name="std" id="std" cols="20" rows="2">
+                {{b0}}
+            </textarea>
+        </div>
+        <div class="seleccionData">
+            <h4>r</h4>
+            <textarea name="std" id="std" cols="20" rows="2">
+                {{r}}
+            </textarea>
+        </div>
+        <div class="seleccionData">
+            <h4>r^2</h4>
+            <textarea name="std" id="std" cols="20" rows="2">
+                {{r2}}
+            </textarea>
+        </div>
+        <div class="seleccionData">
+            <h4>Yk</h4>
+            <textarea name="std" id="std" cols="20" rows="2">
+                {{y}}
+            </textarea>
+        </div>
+            <br>
+            <div class="botones">
+                <button (click)="updateCalculations(1)" class="calcular">
+                    Calculate test 1
+                </button>
+                <br>
+                <button (click)="updateCalculations(2)" class="calcular">
+                    Calculate test 2
+                </button>
+                <br>
+                <button (click)="updateCalculations(3)" class="calcular">
+                    Calculate test 3
+                </button>
+                <br>
+                <button (click)="updateCalculations(4)" class="calcular">
+                    Calculate test 4
+                </button>
+            </div>
+    </div>
+</body>

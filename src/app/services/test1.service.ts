@@ -7,7 +7,7 @@ import { Observable, catchError, retry, throwError } from 'rxjs';
 })
 
 export class Test1Service {
-  private api_url= 'https://apicv-service-natalialm-26.cloud.okteto.net/3a_test1';
+   api_url= 'https://apicv-service-natalialm-26.cloud.okteto.net/3a_test1';
   
   constructor(private http:HttpClient) {}
   /* httpOptions = {
