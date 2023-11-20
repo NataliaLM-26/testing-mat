@@ -88,4 +88,54 @@ describe('SimpsonComponent', () => {
         let result = component.Tsimp(x,0,x,dof,num_seg);
         expect(result).toBeCloseTo(0.49590,3);
   });
+
+  /* INTEGRATION TESTS */
+  it('should update S for option 1', () => {
+    component.updateS(1);
+    expect(component.x0).toBe(0);
+    expect(component.x1).toBe(4);
+    expect(component.segnum).toBe(4);
+    expect(component.error).toBe(0.0001);
+    /* expect(component.fx(2)).toBe(4); */
+  });
+
+  it('should update S for option 2', () => {
+    component.updateS(2);
+    expect(component.x0).toBe(0);
+    expect(component.x1).toBe(1);
+    expect(component.segnum).toBe(4);
+    expect(component.error).toBe(0.0001);
+    /* expect(component.fx(2)).toBe(4); */
+  });
+
+  it('should update S for option 3', () => {
+    component.updateS(3);
+    expect(component.x0).toBe(1);
+    expect(component.x1).toBe(4);
+    expect(component.segnum).toBe(6);
+    expect(component.error).toBe(0.001);
+    /* expect(component.fx(2)).toBe(4); */
+  });
+
+  it('should update T for option 1', () => {
+    component.updateT(1);
+    expect(component.dof).toBe(9);
+    expect(component.x).toBe(1.1);
+    expect(component.segnum).toBe(4);
+  });
+
+  it('should update T for option 2', () => {
+    component.updateT(2);
+    expect(component.dof).toBe(10);
+    expect(component.x).toBe(1.1812);
+    expect(component.segnum).toBe(10);
+  });
+
+  it('should update T for option 3', () => {
+    component.updateT(3);
+    expect(component.dof).toBe(30);
+    expect(component.x).toBe(0.71);
+    expect(component.segnum).toBe(10);
+  });
+
 });

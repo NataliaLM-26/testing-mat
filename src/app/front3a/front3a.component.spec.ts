@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { Front3aComponent } from './front3a.component';
 import { Calculate } from '../common/calculate';
 import { Test1Service } from '../services/test1.service';
@@ -240,5 +240,56 @@ describe('Front3aComponent', () => {
     const result = component.calculateY(386);
     expect(result).toBeCloseTo(49.4994, 4);
   });
+
+
+
+  it('should fetch data for route 1 and handle response', fakeAsync(() => {
+    spyOn(component.test1, 'getData').and.returnValue(of({ proxy_size: [1, 2], actual_added: [3, 4] }));
+    component.fetchDataForRoute(1);
+    tick();
+    expect(component.lista1).toEqual([1, 2]);
+    expect(component.lista2).toEqual([3, 4]);
+    expect(component.sumX).toBe(3);
+    expect(component.sumY).toBe(7);
+  }));
+
+  it('should fetch data for route 2 and handle response', fakeAsync(() => {
+    spyOn(component.test2, 'getData').and.returnValue(of({ proxy_size: [5, 6], actual_develop: [7, 8] }));
+    component.fetchDataForRoute(2);
+    tick();
+    expect(component.lista1).toEqual([5, 6]);
+    expect(component.lista2).toEqual([7, 8]);
+    expect(component.sumX).toBe(11);
+    expect(component.sumY).toBe(15);
+  }));
+
+  it('should fetch data for route 3 and handle response', fakeAsync(() => {
+    spyOn(component.test3, 'getData').and.returnValue(of({ plan_added: [5, 6], actual_added: [7, 8] }));
+    component.fetchDataForRoute(3);
+    tick();
+    expect(component.lista1).toEqual([5, 6]);
+    expect(component.lista2).toEqual([7, 8]);
+    expect(component.sumX).toBe(11);
+    expect(component.sumY).toBe(15);
+  }));
+
+  it('should fetch data for route 4 and handle response', fakeAsync(() => {
+    spyOn(component.test4, 'getData').and.returnValue(of({ plan_added: [5, 6], actual_develop: [7, 8] }));
+    component.fetchDataForRoute(4);
+    tick();
+    expect(component.lista1).toEqual([5, 6]);
+    expect(component.lista2).toEqual([7, 8]);
+    expect(component.sumX).toBe(11);
+    expect(component.sumY).toBe(15);
+  }));
+
+  it('should handle data response', () => {
+    component.lista1 = [1, 2, 3];
+    component.lista2 = [4, 5, 6];
+    component.handleDataResponse({});
+    expect(component.sumX).toBe(6);
+    expect(component.sumY).toBe(15);
+  });
+
 
 });

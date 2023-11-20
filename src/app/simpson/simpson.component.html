@@ -1,2 +1,97 @@
-<p>simpson works!</p>
-<h1>hola</h1>
+<body>
+    <h2>Simpson's rule</h2>
+    <div class="test">
+        <h3>Data</h3>
+        <div class="seleccionData">
+            <h4>x0</h4>
+            <textarea name="media" id="media" cols="20" rows="2">
+                {{x0}}
+            </textarea>
+        </div>    
+        <div class="seleccionData">
+            <h4>x1</h4>
+            <textarea name="std" id="std" cols="20" rows="2">
+                {{x1}}
+            </textarea>
+        </div>
+        <div class="seleccionData">
+            <h4>Seg. Num</h4>
+            <textarea name="std" id="std" cols="20" rows="2">
+                {{segnum}}
+            </textarea>
+        </div>
+        <div class="seleccionData">
+            <h4>f(x)</h4>
+            <textarea name="std" id="std" cols="20" rows="2">
+                {{fx}}
+            </textarea>
+        </div>
+        <div class="seleccionData">
+            <h4>Result</h4>
+            <textarea name="std" id="std" cols="20" rows="2">
+                {{result}}
+            </textarea>
+        </div>
+            <br>
+            <div class="botones">
+                <button (click)="updateS(1)" class="calcular">
+                    Calculate Test 1
+                </button>
+                <button (click)="updateS(2)" class="calcular">
+                    Calculate Test 2
+                </button>
+                <button (click)="updateS(3)" class="calcular">
+                    Calculate Test 3
+                </button>
+            </div>
+    </div>
+    <br>
+    <h2>T-Distribution</h2>
+        <div class="testT">
+            <h3>Data</h3>
+            <div class="seleccionData">
+                <h4>dof</h4>
+                <textarea name="media" id="media" cols="20" rows="2">
+                    {{dof}}
+                </textarea>
+            </div>    
+            <div class="seleccionData">
+                <h4>x</h4>
+                <textarea name="std" id="std" cols="20" rows="2">
+                    {{x}}
+                </textarea>
+            </div>
+            <div class="seleccionData">
+                <h4>Seg. Num</h4>
+                <textarea name="std" id="std" cols="20" rows="2">
+                    {{segnum}}
+                </textarea>
+            </div>
+            <div class="seleccionData">
+                <h4>Error</h4>
+                <textarea name="std" id="std" cols="20" rows="2">
+                    {{error}}
+                </textarea>
+            </div>
+            <div class="seleccionData">
+                <h4>Result</h4>
+                <textarea name="std" id="std" cols="20" rows="2">
+                    {{result}}
+                </textarea>
+            </div>
+                <br>
+                <div class="botones">
+                    <button (click)="updateT(1)" class="calcular">
+                        Calculate Test 1
+                    </button>
+                    <button (click)="updateT(2)" class="calcular">
+                        Calculate Test 2
+                    </button>
+                    <button (click)="updateT(3)" class="calcular">
+                        Calculate Test 3
+                    </button>
+                </div>
+        </div>
+    
+</body>
+

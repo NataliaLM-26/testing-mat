@@ -23,9 +23,18 @@ export class MediaComponent implements OnInit {
       });
   }
 
-  getData(option: number): number[] {
+  /* getData(option: number): number[] {
     return option === 1 ? this.data1 : option === 2 ? this.data2 : [];
+  } */
+
+  getData(option: number): number[] {
+    if (option === 1) {
+      return this.data1;
+    } else{
+      return this.data2;
+    }
   }
+  
 
   calculateMean(data:number[]):number {
     var sum=0;
