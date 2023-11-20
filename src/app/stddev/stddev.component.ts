@@ -23,8 +23,16 @@ export class StddevComponent implements OnInit {
     });
   }
 
-  getData(option: number): number[] {
+  /* getData(option: number): number[] {
     return option === 1 ? this.dato1 : option === 2 ? this.dato2 : [];
+  } */
+
+  getData(option: number): number[] {
+    if (option === 1) {
+      return this.dato1;
+    } else{
+      return this.dato2;
+    }
   }
   
   desviacion(data:number[]){

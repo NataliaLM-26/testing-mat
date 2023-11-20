@@ -30,7 +30,7 @@ export class LinearRegressionComponent {
   calculate = new Calculate();
 
   ngOnInit(): void {
-    /* this.fetchDataForRoute(this.selectedRouteNumber); */
+    this.fetchDataForRoute(this.selectedRouteNumber);
   }
 
   fetchDataForRoute(routeNumber: number): void {

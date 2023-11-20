@@ -135,4 +135,10 @@ describe('LinearRegressionComponent', () => {
       expect(result).toBeCloseTo(49.4994, 4);
     });
 
+    it('should call fetchDataForRoute on ngOnInit', () => {
+      spyOn(component, 'fetchDataForRoute');
+      component.ngOnInit();
+      expect(component.fetchDataForRoute).toHaveBeenCalledWith(component.selectedRouteNumber);
+    });
+
 });

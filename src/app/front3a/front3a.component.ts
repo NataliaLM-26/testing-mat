@@ -11,7 +11,7 @@ import { Test4Service } from '../services/test4.service';
   styleUrls: ['./front3a.component.css']
 })
 export class Front3aComponent {
-  constructor (private test1: Test1Service, private test2: Test2Service, private test3:Test3Service, private test4:Test4Service){  }
+  constructor (public test1: Test1Service,public test2: Test2Service, public test3:Test3Service, public test4:Test4Service){  }
   dataTest = {
     x: [],
     y: [],
@@ -85,7 +85,7 @@ export class Front3aComponent {
   }
 
   updateCalculations(option: number): void {
-    const data = this.fetchDataForRoute(option);
+    /* const data = this.fetchDataForRoute(option); */
     if (option === 1) {
       this.b0=this.calculateB0();
       this.b1=this.calculateB1();

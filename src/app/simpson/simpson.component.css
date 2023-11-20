@@ -1,0 +1,38 @@
+/* body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
+*{
+    font-family: sans-serif;
+}
+
+.seleccionData{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #9a56bf;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    height: 2.5rem;
+    width: 5.5rem;
+}
+
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
