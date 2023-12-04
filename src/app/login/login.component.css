@@ -1,0 +1,18 @@
+input{
+    border-radius: 8px;
+    border: none;
+    height: 1.8rem;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    line-height: 3rem;
+}
+
+button{
+    background-color: #7b04aa;
+    color: white;
+    height: 2rem;
+    width: 5rem;
+}
