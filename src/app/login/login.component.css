@@ -1,18 +1,30 @@
+.formulario{
+    display: flex;
+    flex-direction: column;
+    line-height: 3rem;
+    font-size: 1.2rem;
+}
+
 input{
     border-radius: 8px;
     border: none;
     height: 1.8rem;
 }
 
-.formulario{
-    display: flex;
-    flex-direction: column;
-    line-height: 3rem;
-}
+input.ng-touched.ng-invalid {
+    border: 2px solid red;
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+  }
+  input.ng-valid {
+    border: 2px solid rgb(0, 255, 55)ed;
+    box-shadow: 0 0 10px rgb(0, 255, 55);
+  }
 
 button{
     background-color: #7b04aa;
     color: white;
     height: 2rem;
     width: 5rem;
+    border-radius: 7px;
+    font-size: 1rem;
 }

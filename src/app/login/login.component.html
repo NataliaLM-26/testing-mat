@@ -1,19 +1,32 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LogIn</title>
-</head>
-<body>
-    <h1>Login</h1>
-    <form action="" class="formulario">
-        <label for="usuario">User: </label>
-        <input type="text" id="usuario" name="usuario">
-        <label for="contrasena">Password: </label>
-        <input type="password" id="contrasena" name="contrasena">
-        <br>
-        <button type="submit">Sign In</button>
-    </form>
-</body>
-</html>
+<div>
+    <div>
+        <h1 id="loginFormTitle">Login Form</h1>
+
+        <form (ngSubmit)="onSubmit()" class="formulario">
+            <div class="formulario">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="loginFormEmailInput" name="email" required ngModel>
+                <!-- <div *ngIf="!email.valid && email.touched">
+                    <p>Enter valid Email</p>
+                </div> -->
+            </div>
+            <div class="formulario">
+                <label for="password">Password</label>
+                <input type="password" id="loginFormPasswordInput" name="password" class="form-control" required minlength="5" ngModel>
+                <!-- <div *ngIf="!password.valid && password.touched">
+                    <p>Please enter valid Password!</p>
+                    <p>Password shold be minimum 5 character</p>
+                </div> -->
+            </div>
+            <br>
+            <button type="submit" id="loginFormSubmitButton">Submit</button>
+        </form>
+    </div>
+
+    <div class="row">
+        <div *ngIf="isSubmitted">
+            <p id="loginFormEmailInputValue">Email: {{ email.value }}</p>
+            <p id="loginFormPasswordInputValue">Password: {{ password.value }}</p>
+        </div>
+    </div>
+</div>
