@@ -4,6 +4,7 @@ import { Test1Service } from '../services/test1.service';
 import { Test2Service } from '../services/test2.service';
 import { Test3Service } from '../services/test3.service';
 import { Test4Service } from '../services/test4.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-front3a',
@@ -77,7 +78,6 @@ export class Front3aComponent {
     this.sumY = this.calculate.sumX(this.lista2);
     this.mediaX = this.calculate.calculateMedia(this.lista1);
     this.mediaY = this.calculate.calculateMedia(this.lista2);
-
     this.sumXY = this.calculate.sumXY(this.lista1, this.lista2);
     this.sumXX = this.calculate.sumXX(this.lista1);
     this.sumYY = this.calculate.sumXX(this.lista2);
@@ -85,34 +85,38 @@ export class Front3aComponent {
   }
 
   updateCalculations(option: number): void {
-    /* const data = this.fetchDataForRoute(option); */
+    const data = this.fetchDataForRoute(option);
     if (option === 1) {
       this.b0=this.calculateB0();
       this.b1=this.calculateB1();
       this.y=this.calculateY(386);
       this.r=this.calculateR();
       this.r2=this.calculateRCuadrada();
+      console.log('cuenta 1');
     } if (option === 2) {
       this.b0=this.calculateB0();
       this.b1=this.calculateB1();
       this.y=this.calculateY(386);
       this.r=this.calculateR();
       this.r2=this.calculateRCuadrada();
+      console.log('cuenta 2');
     } if (option === 3) {
       this.b0=this.calculateB0();
       this.b1=this.calculateB1();
       this.y=this.calculateY(386);
       this.r=this.calculateR();
       this.r2=this.calculateRCuadrada();
+      console.log('cuenta 3');
     } if (option === 4) {
       this.b0=this.calculateB0();
       this.b1=this.calculateB1();
       this.y=this.calculateY(386);
       this.r=this.calculateR();
       this.r2=this.calculateRCuadrada();
+      console.log('cuenta 4');
     }
   }
-
+  
   calculateB1(): number {
     this.b1 = this.calculate.calculateB1(this.sumXY, this.sumX, this.sumY, this.sumXX, this.n);
     return this.b1;

@@ -1,4 +1,18 @@
-<div>
+<h1 id="loginFormTitle">Login Form</h1>
+<form id="form-isesion" name="formulario" action="/Main" class="formulario">
+    <label for="usuario">User</label>
+    <input type="email" name="correo" id="loginFormEmailInput" placeholder="example@gmail.com" required>
+    <label for="contrasena">Password</label>
+    <input type="password" id="contrasena" required minlength="8" maxlength="8">
+  <br>
+    <div class="botones">
+      <button type="submit" id="btn" name="btn" value="SignIn" routerLink="/Main">
+        SignIn
+      </button>
+    </div>
+</form>
+
+<!-- <div>
     <div>
         <h1 id="loginFormTitle">Login Form</h1>
 
@@ -6,27 +20,27 @@
             <div class="formulario">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" id="loginFormEmailInput" name="email" required ngModel>
-                <!-- <div *ngIf="!email.valid && email.touched">
+                <div *ngIf="!email.valid && email.touched">
                     <p>Enter valid Email</p>
-                </div> -->
+                </div> 
             </div>
             <div class="formulario">
                 <label for="password">Password</label>
                 <input type="password" id="loginFormPasswordInput" name="password" class="form-control" required minlength="5" ngModel>
-                <!-- <div *ngIf="!password.valid && password.touched">
+                <div *ngIf="!password.valid && password.touched">
                     <p>Please enter valid Password!</p>
                     <p>Password shold be minimum 5 character</p>
-                </div> -->
+                </div>
             </div>
             <br>
             <button type="submit" id="loginFormSubmitButton">Submit</button>
         </form>
     </div>
 
-    <div class="row">
+     <div class="row">
         <div *ngIf="isSubmitted">
             <p id="loginFormEmailInputValue">Email: {{ email.value }}</p>
             <p id="loginFormPasswordInputValue">Password: {{ password.value }}</p>
         </div>
     </div>
-</div>
+</div> -->

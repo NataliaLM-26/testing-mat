@@ -2,23 +2,23 @@
     <title>Mean & StdDev</title>
 </head>
 <body>
-    <h2>Mean & Standar Desviation</h2>
+    <h2 id="title">Mean & Standar Desviation</h2>
     <br>
         <h3>Data1</h3>
             <p>{{ data1 }}</p>
     <div class="seleccionData">
         <h4>Media</h4>
-        <textarea name="media" id="media" cols="20" rows="2">
+        <textarea name="media" id="media1" cols="20" rows="2">
             {{meanData1 || 'Calculating...'}}
         </textarea>
     </div>    
     <div class="seleccionData">
         <h4>Std deviation</h4>
-        <textarea name="std" id="std" cols="20" rows="2">
+        <textarea name="std" id="std1" cols="20" rows="2">
             {{desviacionData1 || 'Calculating...'}}
         </textarea>
     </div>
-    <button (click)="updateCalculations(1)" class="calcular">
+    <button (click)="updateCalculations(1)" class="calcular" id="data1">
         Calculate
     </button>
 
@@ -27,17 +27,17 @@
             <p>{{ data2 }}</p>
     <div class="seleccionData">
         <h4>Media</h4>
-        <textarea name="media" id="media" cols="20" rows="2">
+        <textarea name="media" id="media2" cols="20" rows="2">
             {{meanData2 || 'Calculating...'}}
         </textarea>
     </div>    
     <div class="seleccionData">
         <h4>Std deviation</h4>
-        <textarea name="std" id="std" cols="20" rows="2">
+        <textarea name="std" id="std2" cols="20" rows="2">
             {{desviacionData2 || 'Calculating...'}}
         </textarea>
     </div>
-    <button (click)="updateCalculations(2)" class="calcular">
+    <button (click)="updateCalculations(2)" class="calcular" id="data2">
         Calculate
     </button>
     
